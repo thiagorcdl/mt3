@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mt3"
+dynamic = ["version"]
+description = "Multi-Task Multitrack Music Transcription"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["music", "transcription", "machinelearning", "audio"]
+authors = [
+    {name = "Google Inc.", email = "no-reply@google.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "immutabledict==4.2.2",
+    "librosa==0.11.0",
+    "mir_eval==0.8.2",
+    "note-seq==0.0.5",
+    "pretty_midi==0.2.11",
+    "scikit-learn==1.7.2",
+    "scipy==1.16.2",
+    "t5==0.9.4",
+    "t5x @ git+https://github.com/thiagorcdl/t5x#egg=t5x", # My fork has the pinned versions
+    "tensorflow==2.19.1",
+    "tensorflow-datasets==4.9.9",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "http://github.com/magenta/mt3"
+Repository = "http://github.com/magenta/mt3"
+
+[tool.setuptools.dynamic]
+version = {attr = "mt3.version.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["mt3*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.gin"]
+
+[tool.pytest.ini_options]
+testpaths = ["mt3"]
