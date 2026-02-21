@@ -8,6 +8,7 @@ dynamic = ["version"]
 description = "Multi-Task Multitrack Music Transcription"
 readme = "README.md"
 license = "Apache-2.0"
+license-files = ["LICENSE"]
 keywords = ["music", "transcription", "machinelearning", "audio"]
 authors = [
     {name = "Google Inc.", email = "no-reply@google.com"},
@@ -34,6 +35,7 @@ dependencies = [
 
 [project.optional-dependencies]
 test = ["pytest"]
+gpu = ["t5x[gpu] @ git+https://github.com/thiagorcdl/t5x#egg=t5x"]
 
 [project.urls]
 Homepage = "http://github.com/magenta/mt3"
